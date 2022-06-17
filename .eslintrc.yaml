@@ -12,7 +12,7 @@ extends:
   - plugin:haraka/recommended
 
 rules:
-  indent: [2, 2, {"SwitchCase": 1}]
+  indent: [warn, 4, {"SwitchCase": 1}]
 
 root: true
 

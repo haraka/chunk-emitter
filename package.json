@@ -1,7 +1,7 @@
 {
-  "name": "haraka-plugin-template",
-  "version": "1.0.3",
-  "description": "Haraka plugin that frobnicates email connections",
+  "name": "haraka-chunk-emitter",
+  "version": "1.0.0",
+  "description": "Haraka chuck emitter",
   "main": "index.js",
   "scripts": {
     "lint": "npx eslint *.js test/*.js",
@@ -11,23 +11,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/haraka/haraka-plugin-template.git"
+    "url": "git+https://github.com/haraka/haraka-chunk-emitter.git"
   },
   "keywords": [
     "haraka",
-    "plugin",
-    "template"
+    "chunk-emitter"
   ],
-  "author": "Welcome Member <happy-haraka-hacker@example.com>",
+  "author": "Welcome Member <haraka.mail@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/haraka/haraka-plugin-template/issues"
+    "url": "https://github.com/haraka/haraka-chunk-emitter/issues"
   },
-  "homepage": "https://github.com/haraka/haraka-plugin-template#readme",
+  "homepage": "https://github.com/haraka/haraka-chunk-emitter#readme",
   "devDependencies": {
     "eslint": "8",
-    "eslint-plugin-haraka": "*",
-    "haraka-test-fixtures": "*",
-    "mocha": "9"
+    "eslint-plugin-haraka": "*"
   }
 }

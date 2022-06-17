@@ -37,3 +37,10 @@ jspm_packages
 .node_repl_history
 
 package-lock.json
+bower_components
+# Optional npm cache directory
+.npmrc
+.idea
+.DS_Store
+.release
+haraka-update.sh
