@@ -1,7 +1,7 @@
 {
   "name": "haraka-chunk-emitter",
   "version": "1.0.0",
-  "description": "Haraka chuck emitter",
+  "description": "Haraka chunk emitter",
   "main": "index.js",
   "scripts": {
     "lint": "npx eslint *.js test",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/haraka/haraka-chunk-emitter.git"
+    "url": "git+https://github.com/haraka/chunk-emitter.git"
   },
   "keywords": [
     "haraka",
@@ -20,11 +20,11 @@
   "author": "Haraka Team <haraka.mail@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/haraka/haraka-chunk-emitter/issues"
+    "url": "https://github.com/haraka/chunk-emitter/issues"
   },
-  "homepage": "https://github.com/haraka/haraka-chunk-emitter#readme",
+  "homepage": "https://github.com/haraka/chunk-emitter#readme",
   "devDependencies": {
-    "eslint": "8",
+    "eslint": ">=8",
     "eslint-plugin-haraka": "*"
   }
 }
