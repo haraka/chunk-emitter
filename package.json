@@ -1,6 +1,6 @@
 {
   "name": "haraka-chunk-emitter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Haraka chunk emitter",
   "main": "index.js",
   "scripts": {
