@@ -4,8 +4,8 @@
   "description": "Haraka chuck emitter",
   "main": "index.js",
   "scripts": {
-    "lint": "npx eslint *.js test/*.js",
-    "lintfix": "npx eslint --fix *.js test/*.js",
+    "lint": "npx eslint *.js test",
+    "lintfix": "npx eslint --fix *.js test",
     "versions": "npx dependency-version-checker check",
     "test": "npx mocha"
   },
@@ -17,7 +17,7 @@
     "haraka",
     "chunk-emitter"
   ],
-  "author": "Welcome Member <haraka.mail@gmail.com>",
+  "author": "Haraka Team <haraka.mail@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/haraka/haraka-chunk-emitter/issues"
