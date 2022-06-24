@@ -1,52 +1,64 @@
 
-// node.js built-in modules
 const assert   = require('assert')
+const fs       = require('fs')
+const path     = require('path')
 
-// npm modules
-const fixtures = require('haraka-test-fixtures')
+const ChunkEmitter = require('../index')
 
-// start of tests
-//    assert: https://nodejs.org/api/assert.html
-//    mocha: http://mochajs.org
+describe('chunk-emitter', function () {
 
-beforeEach(function (done) {
-  this.plugin = new fixtures.plugin('template')
-  done()  // if a test hangs, assure you called done()
-})
+    beforeEach(function () {
+        this.ce = new ChunkEmitter()
+        this._written = 0
+    })
 
-describe('template', function () {
-  it('loads', function (done) {
-    assert.ok(this.plugin)
-    done()
-  })
-})
+    it('loads', function () {
+        assert.ok(this.ce)
+    })
 
-describe('load_template_ini', function () {
-  it('loads template.ini from config/template.ini', function (done) {
-    this.plugin.load_template_ini()
-    assert.ok(this.plugin.cfg)
-    done()
-  })
+    it('emits all unbuffered bytes', function (done) {
+        const msgPath = path.join(__dirname, 'fixtures', 'haraka-icon-attach.eml')
+        const eml = fs.readFileSync(msgPath, 'utf8');
 
-  it('initializes enabled boolean', function (done) {
-    this.plugin.load_template_ini()
-    assert.equal(this.plugin.cfg.main.enabled, true, this.plugin.cfg)
-    done()
-  })
-})
+        this._write = (data) => {
+            this._written = (this._written || 0) + data.length
+            if (eml.length === this._written) {
+                assert.equal(eml.length, this._written)
+                done()
+            }
+        }
 
-describe('uses text fixtures', function () {
-  it('sets up a connection', function (done) {
-    this.connection = fixtures.connection.createConnection({})
-    assert.ok(this.connection.server)
-    done()
-  })
+        this.ce.on('data', chunk => {
+            this._write(chunk);
+        })
 
-  it('sets up a transaction', function (done) {
-    this.connection = fixtures.connection.createConnection({})
-    this.connection.transaction = fixtures.transaction.createTransaction({})
-    // console.log(this.connection.transaction)
-    assert.ok(this.connection.transaction.header)
-    done()
-  })
+        this.ce.fill(eml)
+        this.ce.end()
+    })
+
+    it('emits all bigger than buffer bytes', function (done) {
+        const msgPath = path.join(__dirname, 'fixtures', 'haraka-tarball-attach.eml')
+        // console.log(`msgPath: ${msgPath}`)
+        const eml = fs.readFileSync(msgPath, 'utf8');
+        // console.log(`length: ${eml.length}`)
+
+        this._write = (data) => {
+            // console.log(`_write: ${data.length} bytes`)
+            this._written = this._written + data.length
+            // console.log(`_written: ${this._written}`)
+            if (eml.length === this._written) {
+                assert.equal(eml.length, this._written)
+                // console.log(this.ce)
+                done()
+            }
+        }
+
+        this.ce.on('data', chunk => {
+            // console.log(`ce.on.data: ${chunk.length} bytes`)
+            this._write(chunk);
+        })
+
+        this.ce.fill(eml)
+        this.ce.end()
+    })
 })
