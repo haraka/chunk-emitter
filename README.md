@@ -18,5 +18,5 @@ messagestream.write_ce = new ChunkEmitter();
 [ci-url]: https://github.com/haraka/chunk-emitter/actions/workflows/ci.yml
 [clim-img]: https://codeclimate.com/github/haraka/chunk-emitter/badges/gpa.svg
 [clim-url]: https://codeclimate.com/github/haraka/chunk-emitter
-[npm-img]: https://nodei.co/npm/chunk-emitter.png
-[npm-url]: https://www.npmjs.com/package/chunk-emitter
+[npm-img]: https://nodei.co/npm/haraka-chunk-emitter.png
+[npm-url]: https://www.npmjs.com/package/haraka-chunk-emitter
