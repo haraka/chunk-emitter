@@ -8,7 +8,7 @@
 ## USAGE
 
 ```js
-const chunk_emitter = require('haraka-chuck-emitter')
+const chunk_emitter = require('haraka-chunk-emitter')
 messagestream.write_ce = new ChunkEmitter();
 ```
 
